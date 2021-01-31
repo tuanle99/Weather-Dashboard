@@ -50,7 +50,7 @@ $(document).ready(function () {
       },
       error: function () {
         console.log("fail");
-        location.reload();
+        // location.reload();
       },
     });
   }
@@ -76,8 +76,12 @@ $(document).ready(function () {
           data.city.name + " " + new Date().toLocaleDateString()
         );
         var temp = $("<p>").text("Temperature: " + new_data.main.temp + " °F");
-        var humidity = $("<p>").text("Humidity: " + new_data.main.humidity);
-        var wind_speed = $("<p>").text("Wind Speed: " + new_data.wind.speed);
+        var humidity = $("<p>").text(
+          "Humidity: " + new_data.main.humidity + "%"
+        );
+        var wind_speed = $("<p>").text(
+          "Wind Speed: " + new_data.wind.speed + " MPH"
+        );
         var icon =
           "http://openweathermap.org/img/wn/" +
           new_data.weather[0].icon +
@@ -113,7 +117,7 @@ $(document).ready(function () {
       "http://openweathermap.org/img/wn/" + icon + "@2x.png"
     );
     var temp_text = $("<p>").text("temp: " + temp + " °F");
-    var humidity_text = $("<p>").text("humidity: " + humidity);
+    var humidity_text = $("<p>").text("humidity: " + humidity + "%");
     day.append(date_text, icon_img, temp_text, humidity_text);
     $("#content").append(day);
   }
@@ -128,9 +132,21 @@ $(document).ready(function () {
         "&appid=980478c26b1c7dfa008027fe37d9f392",
       method: "GET",
       success: function (data) {
-        var uv = $("<p>").text("UV Index: " + data[0].value);
-        $("#content_div").append(uv);
+        var uv_value = data[0].value;
+        var uv = $("<p>").text("UV Index: ");
+        var uv_text = $("<span>").text(uv_value);
+        if (uv_value < 3) {
+          uv_text.attr("class", "uv-good uv");
+        } else if (uv_value < 7) {
+          uv_text.attr("class", "uv-warning uv");
+        } else {
+          uv_text.attr("class", "uv-bad uv");
+        }
+        $("#content_div").append(uv.append(uv_text));
       },
     });
   }
+
+  var last = Object.keys(localStorage).length - 1;
+  getData(localStorage.getItem(last));
 });
