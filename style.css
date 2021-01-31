@@ -1,0 +1,35 @@
+.header {
+  height: 100px;
+  background-color: black;
+  width: 100%;
+  color: white;
+  text-align: center;
+  font-size: 50px;
+}
+.left {
+  padding-left: 0px !important;
+  margin-top: 20px;
+}
+.cursor {
+  cursor: pointer;
+}
+.forecast_style {
+  display: inline-block;
+  background-color: #23afcf;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+}
+.icon {
+  height: 50px;
+  width: 50px;
+  background-color: #23afcf;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+.forecast_style_div {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  background-color: aqua;
+}
