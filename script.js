@@ -42,7 +42,7 @@ $(document).ready(function () {
       url:
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
-        "&appid=980478c26b1c7dfa008027fe37d9f392&units=imperial",
+        "&appid=9206fe62ef8deaf830536d45be3e0e37&units=imperial",
       method: "GET",
       success: function (data) {
         add_list(data.city.name);
@@ -63,7 +63,7 @@ $(document).ready(function () {
       url:
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
-        "&appid=980478c26b1c7dfa008027fe37d9f392&units=imperial",
+        "&appid=9206fe62ef8deaf830536d45be3e0e37&units=imperial",
       method: "GET",
       success: function (data) {
         console.log(data);
@@ -129,7 +129,7 @@ $(document).ready(function () {
         lat +
         "&lon=" +
         lon +
-        "&appid=980478c26b1c7dfa008027fe37d9f392",
+        "&appid=9206fe62ef8deaf830536d45be3e0e37",
       method: "GET",
       success: function (data) {
         var uv_value = data[0].value;
