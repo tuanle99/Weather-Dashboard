@@ -71,7 +71,6 @@ $(document).ready(function () {
         "&units=imperial",
       method: "GET",
       success: function (data) {
-        console.log(data);
         $("#content").empty();
         $("#forecast").empty();
         var new_data = data.list[0];
