@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var id = localStorage.length;
+  var api_key = "06e33b893282ce1271ff27ce7f73d953";
 
   $("#search").on("click", function () {
     var city = $("#city").val();
@@ -42,7 +43,9 @@ $(document).ready(function () {
       url:
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
-        "&appid=9206fe62ef8deaf830536d45be3e0e37&units=imperial",
+        "&appid=" +
+        api_key +
+        "&units=imperial",
       method: "GET",
       success: function (data) {
         add_list(data.city.name);
@@ -50,7 +53,7 @@ $(document).ready(function () {
       },
       error: function () {
         console.log("fail");
-        // location.reload();
+        //location.reload();
       },
     });
   }
@@ -63,7 +66,9 @@ $(document).ready(function () {
       url:
         "http://api.openweathermap.org/data/2.5/forecast?q=" +
         city +
-        "&appid=9206fe62ef8deaf830536d45be3e0e37&units=imperial",
+        "&appid=" +
+        api_key +
+        "&units=imperial",
       method: "GET",
       success: function (data) {
         console.log(data);
