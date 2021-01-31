@@ -147,6 +147,8 @@ $(document).ready(function () {
     });
   }
 
-  var last = Object.keys(localStorage).length - 1;
-  getData(localStorage.getItem(last));
+  if (Object.keys(localStorage).length - 1 > 0) {
+    var last = Object.keys(localStorage).length - 1;
+    getData(localStorage.getItem(last));
+  }
 });
